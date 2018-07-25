@@ -21,8 +21,8 @@ try:
                                 counter += 1
                         else:
                                 counter -= 1
-                        print counter
-                clkLastState = clkState
+                        print "oldCLK", clkLastState, "CLK: ", clkState, "'DT: ", dtState, "Counter: ", counter
+	        clkLastState = clkState
                 sleep(0.01)
 finally:
         GPIO.cleanup()

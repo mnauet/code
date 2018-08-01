@@ -1,0 +1,308 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install', 'mqtt', '-g' ]
+2 info using npm@1.4.21
+3 info using node@v8.11.1
+4 verbose cache add [ 'mqtt', null ]
+5 verbose cache add name=undefined spec="mqtt" args=["mqtt",null]
+6 verbose parsed url Url {
+6 verbose parsed url   protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'mqtt',
+6 verbose parsed url   path: 'mqtt',
+6 verbose parsed url   href: 'mqtt' }
+7 silly lockFile 6c6756c8-mqtt mqtt
+8 verbose lock mqtt /home/pi/.npm/6c6756c8-mqtt.lock
+9 silly lockFile 6c6756c8-mqtt mqtt
+10 silly lockFile 6c6756c8-mqtt mqtt
+11 verbose addNamed [ 'mqtt', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile f73b3ac7-mqtt mqtt@
+14 verbose lock mqtt@ /home/pi/.npm/f73b3ac7-mqtt.lock
+15 silly addNameRange { name: 'mqtt', range: '*', hasData: false }
+16 verbose request where is /mqtt
+17 verbose request registry https://registry.npmjs.org/
+18 verbose request id f32e5aa869744d55
+19 verbose url raw /mqtt
+20 verbose url resolving [ 'https://registry.npmjs.org/', './mqtt' ]
+21 verbose url resolved https://registry.npmjs.org/mqtt
+22 verbose request where is https://registry.npmjs.org/mqtt
+23 info trying registry request attempt 1 at 10:51:36
+24 verbose etag W/"c89db3e2c27faaa0f5b79dfb4e273309"
+25 http GET https://registry.npmjs.org/mqtt
+26 http 304 https://registry.npmjs.org/mqtt
+27 silly registry.get cb [ 304,
+27 silly registry.get   { date: 'Wed, 01 Aug 2018 08:51:36 GMT',
+27 silly registry.get     connection: 'close',
+27 silly registry.get     'set-cookie':
+27 silly registry.get      [ '__cfduid=d1e2600ee5dee26564564152c60bff9981533113496; expires=Thu, 01-Aug-19 08:51:36 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+27 silly registry.get     'cache-control': 'max-age=300',
+27 silly registry.get     'cf-cache-status': 'HIT',
+27 silly registry.get     'cf-ray': '44371057fae66415-FRA',
+27 silly registry.get     etag: '"c89db3e2c27faaa0f5b79dfb4e273309"',
+27 silly registry.get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+27 silly registry.get     'last-modified': 'Thu, 19 Jul 2018 13:39:22 GMT',
+27 silly registry.get     vary: 'accept-encoding, accept',
+27 silly registry.get     server: 'cloudflare' } ]
+28 verbose etag https://registry.npmjs.org/mqtt from cache
+29 silly addNameRange number 2 { name: 'mqtt', range: '*', hasData: true }
+30 silly addNameRange versions [ 'mqtt',
+30 silly addNameRange   [ '0.1.8',
+30 silly addNameRange     '0.2.0',
+30 silly addNameRange     '0.2.1',
+30 silly addNameRange     '0.2.2',
+30 silly addNameRange     '0.2.3',
+30 silly addNameRange     '0.2.4',
+30 silly addNameRange     '0.2.5',
+30 silly addNameRange     '0.2.6',
+30 silly addNameRange     '0.2.7',
+30 silly addNameRange     '0.2.8',
+30 silly addNameRange     '0.2.9',
+30 silly addNameRange     '0.2.10',
+30 silly addNameRange     '0.2.11',
+30 silly addNameRange     '0.3.0',
+30 silly addNameRange     '0.3.1',
+30 silly addNameRange     '0.3.2',
+30 silly addNameRange     '0.3.3',
+30 silly addNameRange     '0.3.4',
+30 silly addNameRange     '0.3.5',
+30 silly addNameRange     '0.3.6',
+30 silly addNameRange     '0.3.7',
+30 silly addNameRange     '0.3.8',
+30 silly addNameRange     '0.3.9',
+30 silly addNameRange     '0.3.10',
+30 silly addNameRange     '0.3.11',
+30 silly addNameRange     '0.3.12',
+30 silly addNameRange     '0.3.13',
+30 silly addNameRange     '1.0.0-pre.1',
+30 silly addNameRange     '1.0.0-pre.2',
+30 silly addNameRange     '1.0.0-pre.3',
+30 silly addNameRange     '1.0.0-pre.4',
+30 silly addNameRange     '1.0.0-pre.5',
+30 silly addNameRange     '1.0.0-pre.6',
+30 silly addNameRange     '1.0.0',
+30 silly addNameRange     '1.0.1',
+30 silly addNameRange     '1.0.2',
+30 silly addNameRange     '1.0.3',
+30 silly addNameRange     '1.0.4',
+30 silly addNameRange     '1.0.5',
+30 silly addNameRange     '1.0.6',
+30 silly addNameRange     '1.0.7',
+30 silly addNameRange     '1.0.8',
+30 silly addNameRange     '1.0.9',
+30 silly addNameRange     '1.0.10',
+30 silly addNameRange     '1.0.11',
+30 silly addNameRange     '1.1.0',
+30 silly addNameRange     '1.1.1',
+30 silly addNameRange     '1.1.2',
+30 silly addNameRange     '1.1.3',
+30 silly addNameRange     '1.1.4',
+30 silly addNameRange     '1.1.5',
+30 silly addNameRange     '1.2.0',
+30 silly addNameRange     '1.2.1',
+30 silly addNameRange     '1.3.0',
+30 silly addNameRange     '1.3.1',
+30 silly addNameRange     '1.3.2',
+30 silly addNameRange     '1.3.3',
+30 silly addNameRange     '1.3.4',
+30 silly addNameRange     '1.3.5',
+30 silly addNameRange     '1.4.0',
+30 silly addNameRange     '1.4.1',
+30 silly addNameRange     '1.4.2',
+30 silly addNameRange     '1.4.3',
+30 silly addNameRange     '1.5.0',
+30 silly addNameRange     '1.6.0',
+30 silly addNameRange     '1.6.1',
+30 silly addNameRange     '1.6.2',
+30 silly addNameRange     '1.6.3',
+30 silly addNameRange     '1.7.0',
+30 silly addNameRange     '1.7.2',
+30 silly addNameRange     '1.7.3',
+30 silly addNameRange     '1.7.4',
+30 silly addNameRange     '1.7.5',
+30 silly addNameRange     '1.8.0',
+30 silly addNameRange     '1.9.0',
+30 silly addNameRange     '1.10.0',
+30 silly addNameRange     '1.11.0',
+30 silly addNameRange     '1.11.1',
+30 silly addNameRange     '1.11.2',
+30 silly addNameRange     '1.12.0',
+30 silly addNameRange     '1.13.0',
+30 silly addNameRange     '1.14.0',
+30 silly addNameRange     '1.14.1',
+30 silly addNameRange     '2.0.0',
+30 silly addNameRange     '2.0.1',
+30 silly addNameRange     '2.1.0',
+30 silly addNameRange     '2.1.1',
+30 silly addNameRange     '2.1.2',
+30 silly addNameRange     '2.1.3',
+30 silly addNameRange     '2.2.0',
+30 silly addNameRange     '2.2.1',
+30 silly addNameRange     '2.3.0',
+30 silly addNameRange     '2.3.1',
+30 silly addNameRange     '2.4.0',
+30 silly addNameRange     '2.5.0',
+30 silly addNameRange     '2.5.1',
+30 silly addNameRange     '2.5.2',
+30 silly addNameRange     '2.6.0',
+30 silly addNameRange     '2.6.1',
+30 silly addNameRange     '2.6.2',
+30 silly addNameRange     ... 27 more items ] ]
+31 verbose addNamed [ 'mqtt', '2.18.3' ]
+32 verbose addNamed [ '2.18.3', '2.18.3' ]
+33 silly lockFile 8928c6e3-mqtt-2-18-3 mqtt@2.18.3
+34 verbose lock mqtt@2.18.3 /home/pi/.npm/8928c6e3-mqtt-2-18-3.lock
+35 silly lockFile 8928c6e3-mqtt-2-18-3 mqtt@2.18.3
+36 silly lockFile 8928c6e3-mqtt-2-18-3 mqtt@2.18.3
+37 silly lockFile f73b3ac7-mqtt mqtt@
+38 silly lockFile f73b3ac7-mqtt mqtt@
+39 silly resolved [ { name: 'mqtt',
+39 silly resolved     description: 'A library for the MQTT protocol',
+39 silly resolved     version: '2.18.3',
+39 silly resolved     contributors: [ [Object], [Object] ],
+39 silly resolved     keywords: [ 'mqtt', 'publish/subscribe', 'publish', 'subscribe' ],
+39 silly resolved     license: 'MIT',
+39 silly resolved     repository: { type: 'git', url: 'git://github.com/mqttjs/MQTT.js.git' },
+39 silly resolved     main: 'mqtt.js',
+39 silly resolved     types: 'types/index.d.ts',
+39 silly resolved     scripts:
+39 silly resolved      { test: 'istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly --',
+39 silly resolved        pretest: 'standard | snazzy',
+39 silly resolved        tslint: 'if [[ "`node -v`" != "v4.3.2" ]]; then tslint types/**/*.d.ts; fi',
+39 silly resolved        'typescript-compile-test': 'tsc -p test/typescript/tsconfig.json',
+39 silly resolved        'typescript-compile-execute': 'node test/typescript/*.js',
+39 silly resolved        'typescript-test': 'npm run typescript-compile-test && npm run typescript-compile-execute',
+39 silly resolved        prepare: 'nsp check && npm run browser-build',
+39 silly resolved        'browser-build': 'rimraf dist/ && mkdirp dist/ && browserify mqtt.js -s mqtt > dist/mqtt.js && uglifyjs < dist/mqtt.js > dist/mqtt.min.js',
+39 silly resolved        'browser-test': 'zuul --server test/browser/server.js --local --open test/browser/test.js',
+39 silly resolved        'weapp-test': 'zuul --server test/browser/server.js --local --open test/browser/wx.js',
+39 silly resolved        'sauce-test': 'zuul --server test/browser/server.js --tunnel ngrok -- test/browser/test.js',
+39 silly resolved        ci: 'npm run tslint && npm run typescript-test && npm run test && codecov' },
+39 silly resolved     'pre-commit': [ 'test', 'tslint' ],
+39 silly resolved     bin:
+39 silly resolved      { mqtt_pub: './bin/pub.js',
+39 silly resolved        mqtt_sub: './bin/sub.js',
+39 silly resolved        mqtt: './mqtt.js' },
+39 silly resolved     files:
+39 silly resolved      [ 'dist/',
+39 silly resolved        'CONTRIBUTING.md',
+39 silly resolved        'doc',
+39 silly resolved        'lib',
+39 silly resolved        'bin',
+39 silly resolved        'examples',
+39 silly resolved        'test',
+39 silly resolved        'types',
+39 silly resolved        'mqtt.js' ],
+39 silly resolved     engines: { node: '>=4.0.0' },
+39 silly resolved     browser:
+39 silly resolved      { './mqtt.js': './lib/connect/index.js',
+39 silly resolved        fs: false,
+39 silly resolved        tls: false,
+39 silly resolved        net: false },
+39 silly resolved     dependencies:
+39 silly resolved      { commist: '^1.0.0',
+39 silly resolved        'concat-stream': '^1.6.2',
+39 silly resolved        'end-of-stream': '^1.4.1',
+39 silly resolved        'help-me': '^1.0.1',
+39 silly resolved        inherits: '^2.0.3',
+39 silly resolved        minimist: '^1.2.0',
+39 silly resolved        'mqtt-packet': '^5.6.0',
+39 silly resolved        pump: '^3.0.0',
+39 silly resolved        'readable-stream': '^2.3.6',
+39 silly resolved        reinterval: '^1.1.0',
+39 silly resolved        split2: '^2.1.1',
+39 silly resolved        'websocket-stream': '^5.1.2',
+39 silly resolved        xtend: '^4.0.1' },
+39 silly resolved     devDependencies:
+39 silly resolved      { '@types/node': '^8.10.21',
+39 silly resolved        browserify: '^16.2.2',
+39 silly resolved        codecov: '^3.0.4',
+39 silly resolved        global: '^4.3.2',
+39 silly resolved        istanbul: '^0.4.5',
+39 silly resolved        mkdirp: '^0.5.1',
+39 silly resolved        mocha: '^4.1.0',
+39 silly resolved        'mqtt-connection': '^3.0.0',
+39 silly resolved        nsp: '^3.2.1',
+39 silly resolved        'pre-commit': '^1.2.2',
+39 silly resolved        rimraf: '^2.6.2',
+39 silly resolved        'safe-buffer': '^5.1.2',
+39 silly resolved        should: '^13.2.1',
+39 silly resolved        sinon: '~1.17.7',
+39 silly resolved        snazzy: '^7.1.1',
+39 silly resolved        standard: '^11.0.1',
+39 silly resolved        through2: '^2.0.3',
+39 silly resolved        tslint: '^5.11.0',
+39 silly resolved        'tslint-config-standard': '^7.1.0',
+39 silly resolved        typescript: '^2.9.2',
+39 silly resolved        'uglify-js': '^3.4.5',
+39 silly resolved        ws: '^3.3.3',
+39 silly resolved        zuul: '^3.12.0',
+39 silly resolved        'zuul-ngrok': '^4.0.0' },
+39 silly resolved     standard: { env: [Array] },
+39 silly resolved     gitHead: '274511d1f4b32d11b231e193da494289c75f81bb',
+39 silly resolved     bugs: { url: 'https://github.com/mqttjs/MQTT.js/issues' },
+39 silly resolved     homepage: 'https://github.com/mqttjs/MQTT.js#readme',
+39 silly resolved     _id: 'mqtt@2.18.3',
+39 silly resolved     _npmVersion: '6.2.0',
+39 silly resolved     _nodeVersion: '8.11.3',
+39 silly resolved     _npmUser: { name: 'matteo.collina', email: 'hello@matteocollina.com' },
+39 silly resolved     dist:
+39 silly resolved      { integrity: 'sha512-BXCUugFgA6FOWJGxhvUWtVLOdt6hYTmiMGPksEyKuuF1FQ0ji7UJBJ/0kVRMUtUWCAtPGnt4mZZZgJpzNLcuQg==',
+39 silly resolved        shasum: '3d67b68b8cd1b63e42df5e74a8829467279776e6',
+39 silly resolved        tarball: 'https://registry.npmjs.org/mqtt/-/mqtt-2.18.3.tgz',
+39 silly resolved        fileCount: 66,
+39 silly resolved        unpackedSize: 725542,
+39 silly resolved        'npm-signature': '-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbUJR/CRA9TVsSAnZWagAA0UQP/RJM5lmAxcD7d9QRRkoq\ntN0itbQ93zI8lWlpYM2RbXVnhi19OP+O6mBD4PdFk8Zqc6+l6UHd21z3L1GP\nsW+K+U8msbMjogGardOPlt3VU0SQCIG4pnOpMMfQzOkQpPqLChCX1IeSXxli\nkoXbSml1z/oOzJNyg4E/78rmE3MnRifiBtu6kUttOC0/BWyR7dwdtH+YzF3+\nPB6SayKHXtIY8K5qo2FxMA3lQ8Po3FKiUQG24SP54LOZM49TfUiC+zl2npgz\n+HNifAf1FaiacxUr21c8l6wl8EEdRV9Jcrsulspd9Q2cHDgWW/GT6CmPGyf+\ng7svTRDSkea89/NpsJjP+/I0SZPMyfqd6fwtrK7vkYtr6yESP6TmjV++is9W\nHSTRXJWwNEqbFwyAVaRmQTdoyQSrWgEhey4Y4iCXzDBOzPAmj5oezZBwgCaD\n4+4FKakIs4nIRUbyvVfbmKc1SKKA/yAdmTK4uslljbBj5BdIOQNALguGb4nX\nX04LCf3GWANJURWrp1NTK2WdWa9XUl0wGV8suifDE49RgXtXZcz45rE77WEg\nm6mzA6Py/ZvE3VSBOfLoRV+CLEHWEz4HqvHtJm0rd5zaA25YtaZdwD5HYPYo\nkn6CIoncK3Sgd8l7TrCGNQ4TLX4wylKLfbw1NzVUEdU7cNzVHvgaHf6s8CIS\nfH+T\r\n=+c9y\r\n-----END PGP SIGNATURE-----\r\n' },
+39 silly resolved     maintainers: [ [Object], [Object] ],
+39 silly resolved     directories: {},
+39 silly resolved     _npmOperationalInternal:
+39 silly resolved      { host: 's3://npm-registry-packages',
+39 silly resolved        tmp: 'tmp/mqtt_2.18.3_1532007551410_0.1890175363732829' },
+39 silly resolved     _shasum: '3d67b68b8cd1b63e42df5e74a8829467279776e6',
+39 silly resolved     _from: 'mqtt@',
+39 silly resolved     _resolved: 'https://registry.npmjs.org/mqtt/-/mqtt-2.18.3.tgz',
+39 silly resolved     readme: 'ERROR: No README data found!' } ]
+40 info install mqtt@2.18.3 into /usr/local/lib
+41 info installOne mqtt@2.18.3
+42 verbose lib/node_modules/mqtt unbuild
+43 info preuninstall mqtt@2.18.3
+44 info uninstall mqtt@2.18.3
+45 verbose true,/usr/local/lib/node_modules,/usr/local/lib/node_modules unbuild mqtt@2.18.3
+46 verbose /usr/local/bin,[object Object] binRoot
+47 info postuninstall mqtt@2.18.3
+48 verbose lib/node_modules/mqtt unbuild
+49 info preuninstall mqtt@2.18.3
+50 info uninstall mqtt@2.18.3
+51 verbose true,/usr/local/lib/node_modules,/usr/local/lib/node_modules unbuild mqtt@2.18.3
+52 verbose /usr/local/bin,[object Object] binRoot
+53 info postuninstall mqtt@2.18.3
+54 error error rolling back Error: EACCES: permission denied, rmdir '/usr/local/lib/node_modules/mqtt'
+54 error error rolling back  mqtt@2.18.3 { Error: EACCES: permission denied, rmdir '/usr/local/lib/node_modules/mqtt'
+54 error error rolling back   errno: -13,
+54 error error rolling back   code: 'EACCES',
+54 error error rolling back   syscall: 'rmdir',
+54 error error rolling back   path: '/usr/local/lib/node_modules/mqtt' }
+55 error Error: EACCES: permission denied, rmdir '/usr/local/lib/node_modules/mqtt'
+55 error  { Error: EACCES: permission denied, rmdir '/usr/local/lib/node_modules/mqtt'
+55 error   errno: -13,
+55 error   code: 'EACCES',
+55 error   syscall: 'rmdir',
+55 error   path: '/usr/local/lib/node_modules/mqtt' }
+56 error Please try running this command again as root/Administrator.
+57 error System Linux 4.14.52-v7+
+58 error command "/usr/bin/node" "/usr/bin/npm" "install" "mqtt" "-g"
+59 error cwd /home/pi/code/js
+60 error node -v v8.11.1
+61 error npm -v 1.4.21
+62 error path /usr/local/lib/node_modules/mqtt
+63 error syscall rmdir
+64 error code EACCES
+65 error errno -13
+66 error stack Error: EACCES: permission denied, rmdir '/usr/local/lib/node_modules/mqtt'
+67 verbose exit [ -13, true ]

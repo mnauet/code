@@ -1,6 +1,9 @@
 var mosca = require('mosca');
 var settings = {
-  port: 1883
+  port: 1883,
+  http: {
+	port:3000
+}
 };
  
 //here we start mosca

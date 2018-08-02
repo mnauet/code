@@ -1,12 +1,25 @@
+
 import paho.mqtt.client as mqtt
 import time
 import RPi.GPIO as GPIO
 ########################################
 def on_message(client, userdata, message):
-    print("message.payload decode - received " ,str(message.payload.decode("utf-8")))
-    print("message.topic=",message.topic)
-    print("message.qos=",message.qos)
-    print("message.retain flag=",message.retain)
+#    print("message.payload decode - received " ,str(message.payload.decode("utf-8")))
+ #   print("message.topic=",message.topic)
+  #  print("message.qos=",message.qos)
+   # print("message.retain flag=",message.retain)
+    
+    if  message.topic == 'p1/cmd/ledon' :
+	print("message.topic: :" + message.topic)
+	if message.payload == 'on':
+		GPIO.output(23,GPIO.LOW)
+		print("message,payload: "+ message.payload)
+
+    if  message.topic == 'p1/cmd/ledoff' :
+	print("message.topic: :" + message.topic)
+	if message.payload == 'off':
+		print("message,payload: "+ message.payload)
+		GPIO.output(23,GPIO.HIGH)
 ########################################
 broker_address ="127.0.0.1"  # "mqtt://localhost"
 GPIO.setmode(GPIO.BCM  )    # set gpio pin mode
@@ -24,8 +37,8 @@ client.loop_start() #start the loop
 client.subscribe("p1/cmd/ledon")
 client.subscribe("p1/cmd/ledoff")
 
-client.publish("p1/sensor/encoder","publish")
-client.publish("p1/sensor/encoder","encoder")
+#client.publish("p1/sensor/encoder","publish")
+#client.publish("p1/sensor/encoder","encoder")
 ledState = False
 
 while True:
@@ -36,13 +49,17 @@ while True:
 		#client.publish("p1/sensor/touch","touched")
 		print("touched")
 		if ledState:
-			GPIO.output(23,GPIO.HIGH)
+		#	GPIO.output(23,GPIO.HIGH)
 			ledState = False
-			print ("true")
+		#	print ("true")
+			client.publish("p1/cmd/ledoff","off")
+
 		else:
-			GPIO.output(23,GPIO.LOW)
+		#	GPIO.output(23,GPIO.LOW)
 			ledState = True
-			print ("false")
+		#	print ("false")
+			client.publish("p1/cmd/ledon","on")
+
 	        time.sleep(1)
 
 

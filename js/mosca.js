@@ -17,17 +17,17 @@ function setup() {
  
 // fired whena  client is connected
 server.on('clientConnected', function(client) {
-  console.log('client connected', client.id);
+  console.log('client connected -client Id ', client.id);
 });
  
 // fired when a message is received
 server.on('published', function(packet, client) {
-  console.log('Published : ', packet.payload);
+  console.log('Published -> packet.payload : ', packet.payload);
 });
  
 // fired when a client subscribes to a topic
-server.on('subscribed', function(topic, client) {
-  console.log('subscribed : ', topic);
+server.on('client subscribed to a topic', function(topic, client) {
+  console.log('subscribed client - topic : ',client, topic);
 });
  
 // fired when a client subscribes to a topic

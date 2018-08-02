@@ -1,0 +1,721 @@
+23.07.2018
+------------------
+malik akram-
+-----------------
+Quick Notes, detail notes, links, research below
+---------------------
+Reply Workshop
+user sd card formatter to format, quick	filename: SD_CardFormatter0500SetupEN
+use etcher to burn zip direclty to the sd card.	filename: Etcher-Setup-1.4.4-x64
+
+keyboard layout change, need to change twice, otherwise does not work
+pi, raspberry user/password
+wlan settings
+ctrl+alt F1 to terminal 1
+ctrl+alt F7 to desktop
+----------------------
+sudo raspi-config - to set remote terminal access.
+activate SSH & VNC in interface menu
+----------------------
+change network eth0 settings
+
+sudo nano /etc/dhcpcd.conf
+change both lines below
+interface eth0
+static ip_address=192.168.100.100/24
+reboot, after this putty and network should work
+---------------------------
+VNC
+ 
+$ sudo apt-get update
+$ sudo apt-get install tightvncserver
+$ vncpasswd
+
+$ vncserver
+raspberry	- vnc server password on pi
+Would you like to enter a view-only password (y/n)? n
+
+----------------------
+git
+
+git config --global user.name "mnauet"
+git config --global user.email "malik.akram@gmx.de" 
+
+git clone https://github.com/mnauet/code.git
+all reply code is basically three files.
+mosca.js	# start mosca server with http port 3000
+client.py	# http python client.
+form.html	# form and implementation of java script client with web sockets.
+		# need file mqttws31.js, 
+----------------------
+software installations:
+sudo apt-get update
+sudo apt-get install nodejs		v8.11.1
+sudo apt-get install npm
+sudo npm install debug
+npm install mosca --save	embedded version
+----------------------
+default user pi/raspberry
+adduser malik malik2 malik3	pwd: malik123 
+sudo chmod -R 757 ./code 	give access to all users to my code directory
+-------------------
+
+----------------------
+pip install paho-mqtt -python client
+https://www.eclipse.org/paho/clients/python/docs/
+----------------------
+java client - paho -mqtt client need file mqttws31.js, 
+nothing else, copy in folder
+
+-------------------------------------
+
+
+----------------------
+1:start mosca first
+node /home/pi/code/js/mosca.js
+2: open form.html in browser, connect to local host, 127.0.0.1, port 3000
+subscribe topics or publisch topic
+3:
+start python client 
+$ python client.py
+touch sensor, it will switch led on /off
+publish from form, on/off topic, led goes on off too.
+
+----------------------s
+
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------------------------
+----------------------------------------
+----------------------------------------
+----------------------------------------
+----------------------------------------
+
+https://github.com/mcollina/mosca
+
+https://github.com/mqttjs/MQTT.js
+https://pypi.org/project/paho-mqtt/
+https://thejackalofjavascript.com/getting-started-mqtt/
+http://www.steves-internet-guide.com/into-mqtt-python-client/
+http://www.steves-internet-guide.com/mqtt-python-callbacks/
+http://www.steves-internet-guide.com/loop-python-mqtt-client/
+
+MQTT.js is a client library for the MQTT protocol, written in JavaScript for node.js and the browser.
+
+----------------------
+
+
+
+
+pi@raspberrypi ~ $ cat /etc/debian_version 
+pi@raspberrypi ~ $ cat /etc/os-release
+pi@raspberrypi ~ $ uname -a
+	Linux raspberrypi 4.1.19-v7+ #858 SMP Tue Mar 15 15:56:00 GMT 2016 armv7l GNU/Linux
+pi@raspberrypi ~ $ cat /proc/cpuinfo
+	armv7 Processor	rev 5
+	
+
+poweroff 	shutdown 
+uname -a	version of Linux
+gpio -v
+groups pi
+
+cat /sys/class/thermal/thermal_zone0/temp	 ARM CPU temperature
+vcgencmd measure_temp			 ls	 GPU (Graphics Processing Unit) temperature:
+cpu=$(</sys/class/thermal/thermal_zone0/j
+temp)
+echo "$((cpu/1000)) c"
+
+
+cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq 	cpu clock speed
+
+
+sudo shutdown -h now 
+sudo shutdown -r now	reboot
+sudo apt-get update
+sudo apt-get install xscreensaver
+
+
+
+sudo nano /etc/kbd/config
+sudo apt-get update
+-------------------------------------------------------
+-------------------------------------------------------
+git
+
+$ sudo apt-get install git
+git version
+
+git config --global user.name "mnauet"
+git config --global user.email "malik.akram@gmx.de" 
+
+
+echo "# code" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/mnauet/code.git
+git push -u origin master
+
+
+
+
+git clone https://github.com/mnauet/code.git
+
+
+https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
+---------------------------------------------------------------
+
+
+MODEL AND PI REVISION	256MB	HARDWARE REVISION CODE FROM CPUINFO
+Model B Revision 1.0	256MB	0002
+Model B Revision 1.0 + ECN0001 (no fuses, D14 removed)	256MB	0003
+Model B Revision 2.0
+Mounting holes		256MB	0004
+0005
+0006
+Model A
+Mounting holes		256MB	0007
+0008
+0009
+Model B Revision 2.0
+Mounting holes		512MB	000d
+000e
+000f
+Model B+		512MB	0010
+Compute Module		512MB	0011
+Model A+		256MB	0012
+Pi 2 Model B		1GB	a01041 (Sony, UK)
+a21041 (Embest, China)
+PiZero			512MB	900092(no camera connector)
+900093(camera connector)
+Pi 3 Model B		1GB	a02082 (Sony, UK)
+a22082 (Embest, China)
+PiZero W		512MB	9000c1
+
+---------------------------------
+The Raspberry Pi 3, with a quad-core ARM Cortex-A53 processor, is described as 10 times 
+the performance of a Raspberry Pi 1. ... On the CPU level the performance is similar 
+to a 300 MHz Pentium II of 1997–99
+
+--------------------------------
+LED Tutorial
+https://tutorials-raspberrypi.de/raspberry-pi-gpio-erklaerung-beginner-programmierung-lernen/
+
+import RPi.GPIO as GPIO
+import time
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(23, GPIO.OUT)
+GPIO.output(23, GPIO.HIGH)
+GPIO.output(23, GPIO.LOW)
+
+
+for i in range(5):
+    GPIO.output(23, GPIO.LOW)
+    time.sleep(0.5)
+    GPIO.output(23, GPIO.HIGH)
+    time.sleep(0.5)
+
+
+---------------------
+hardware
+1602 16x2 Zeichen LCD Display Modul HD44780 blau mit Backlight für Arduino 
+https://www.amazon.de/Zeichen-Display-HD44780-Backlight-Arduino-Blau/dp/B009GEPZRE/ref=sr_1_1?ie=UTF8&qid=1532362319&sr=8-1&keywords=1602+16x2+zeichen+lcd+display
+
+
+
+https://tutorials-raspberrypi.de/raspberry-pi-lcd-display-16x2-hd44780/
+
+
+----------------------
+install image
+https://www.raspberrypi.org/downloads/raspbian/
+https://www.raspberrypi.org/documentation/installation/installing-images/README.md
+
+Etcher-Setup-1.4.4-x64		tool to burn image 
+SD_CardFormatter0500SetupEN	tool to format sd mini card
+2018-06-27-raspbian-stretch	image of raspberry pi - 4.14.50-v7 armv71
+
+
+
+
+
+https://www.raspberrypi.org/learning/software-guide/
+
+
+----------------------------
+issues:
+pi does not boot second time, only new image burning helps to make run
+https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=58151
+
+
+
+https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=58151
+
+
+------------------------
+Arduino Rotrary Encoder
+https://www.modmypi.com/blog/how-to-use-a-rotary-encoder-with-the-raspberry-pi
+https://www.modmypi.com/raspberry-pi/sensors-1061/rotary-encoders-1112/keyes-rotary-encoder-module	encoder sheet
+
+
+
+
+
+
+
+---------------------------
+Temperature and humidity sensor
+
+DHT11
+
+https://circuitdigest.com/microcontroller-projects/raspberry-pi-dht11-interfacing-with-python-code
+
+https://www.electronicshub.org/raspberry-pi-dht11-humidity-temperature-sensor-interface/
+
+https://learn.adafruit.com/dht-humidity-sensing-on-raspberry-pi-with-gdocs-logging/software-install-updated
+
+
+//with json
+https://medium.com/dyi-electronics/raspberry-pi-and-dht11-humidity-sensor-cccf6b3072ad
+
+https://www.sunfounder.com/learn/lesson-28-humiture-sensor-sensor-kit-v2-0-for-b-plus.html
+
+----------------
+LCD library from adafruit 
+https://circuitdigest.com/microcontroller-projects/raspberry-pi-dht11-interfacing-with-python-code
+sudo python setup.py install
+
+
+---------------
+sensors list
+https://tutorials-raspberrypi.com/raspberry-pi-sensors-overview-50-important-components/
+
+
+
+
+----------------------
+push button
+https://www.sunfounder.com/learn/sensor-kit-v2-0-for-raspberry-pi-b-plus/lesson-6-button-module-sensor-kit-v2-0-for-b-plus.html
+
+
+-------------------------------------------------------------
+Mosca MQTT
+
+sudo apt-get update
+ 
+sudo apt-get install nodejs		v8.11.1
+ 
+sudo apt-get install npm
+ 
+sudo npm install debug
+ 
+sudo npm install mosca bunyan -g	Bunyan is a JSON logging library; -v verbose logging
+ 
+sudo npm install daemon
+
+mosca -v | bunyan
+
+
+
+$ node -v
+$ npm -v
+$ sudo npm install npm@latest -g
+$ mosca --help
+
+
+sudo apt-get install mosquitto
+sudo apt-get install mosquitto mosquitto-clients -y
+
+
+
+
+
+$ mosca --help
+
+  Usage: mosca [options] [command]
+
+  Commands:
+
+    adduser <user> <pass>  Add a user to the given credentials file
+    rmuser <user>          Removes a user from the given credentials file
+    start                  start the server (optional)
+
+    -h, --help                       output usage information
+    -V, --version                    output the version number
+    -p, --port <n>                   the port to listen to
+    --host <IP>                      the host to listen to
+    --parent-port <n>                the parent port to connect to
+    --parent-host <s>                the parent host to connect to
+    --parent-prefix <s>              the prefix to use in the parent broker
+    --credentials <file>             the file containing the credentials
+    --authorize-publish <pattern>    the pattern for publishing to topics for the added user
+    --authorize-subscribe <pattern>  the pattern for subscribing to topics for the added user
+    --key <file>                     the server's private key
+    --cert <file>                    the certificate issued to the server
+    --secure-port <n>                the TLS port to listen to
+    --non-secure                     start both a secure and non-secure server
+    --http-port <n>                  start an mqtt-over-websocket server on the specified port
+    --https-port <n>                 start an mqtt-over-secure-websocket server on the specified port
+    --http-static <directory>        serve some static files alongside the websocket client
+    --https-static <directory>       serve some static files alongside the secure websocket client
+    --http-bundle                    serve a MQTT.js-based client at /mqtt.js on HTTP
+    --https-bundle                   serve a MQTT.js-based client at /mqtt.js on HTTPS
+    --only-http                      start only an mqtt-over-websocket server
+    --disable-stats                  disable the publishing of stats under $SYS
+    --broker-id <id>                 the id of the broker in the $SYS/<id> namespace
+    -c, --config <c>                 the config file to use (override every other option)
+    -d, --db <path>                  the path were to store the database
+    -v, --verbose                    set the bunyan log to INFO
+    --very-verbose                   set the bunyan log to DEBUG
+
+
+
+https://thejackalofjavascript.com/getting-started-mqtt/
+
+http://adityatannu.com/blog/post/2015/12/13/ESP8266-based-HomeKit-accessories.html
+
+https://github.com/mcollina/mosca/issues/529
+http://www.philchen.com/2015/05/04/how-to-setup-a-mosca-node-js-mqtt-broker-service-on-ubuntu-14-04
+https://medium.com/@jimgbest/mqtt-raspberry-pi-with-nodejs-478a4839bc43
+https://github.com/mcollina/mosca/wiki/Mosca-as-a-standalone-service.
+
+
+https://github.com/mcollina/mosca/wiki/Mosca-basic-usage
+https://www.nearform.com/blog/internet-of-things-how-to-build-it-faster/
+
+-------------------------------------------------------------
+MQTT Client
+
+https://thejackalofjavascript.com/getting-started-mqtt/	js client
+
+
+http://www.steves-internet-guide.com/into-mqtt-python-client/
+http://www.steves-internet-guide.com/into-mqtt-python-client/
+http://www.steves-internet-guide.com/client-objects-python-mqtt/
+
+http://embeddedtek.blogspot.com/2015/06/real-time-web-interface-to-mqtt-using.html
+https://www.eclipse.org/paho/clients/js/
+
+
+http://www.steves-internet-guide.com/into-mqtt-python-client/
+
+--------------------------------------------------------------
+Web browser
+https://xperimentia.com/2015/08/20/building-a-browser-based-user-interface-with-mqtt/
+http://controlonline.net/lib/exe/fetch.php?media=public:prontuari:controlonline:http_blog_jonharrington_org_displaying-mqtt-messages-in-a-browser-in-real-time_.pdf
+
+-------------------------------------------------------------
+MQTT over Websockets
+
+
+pip install paho-mqtt
+
+
+https://github.com/mcollina/mosca/wiki/MQTT-over-Websockets
+https://medium.com/@alifabdullah/setting-up-private-mqtt-broker-using-mosca-in-node-js-c61a3c74f952
+http://www.steves-internet-guide.com/client-objects-python-mqtt/
+http://www.steves-internet-guide.com/downloads/#examples	download page from steve
+-------------------------------------------------------------
+MQTT JS client
+
+https://gist.github.com/jpwsutton/6427e38dd3d1db6ba11e48eb0712cba7
+
+https://www.youtube.com/watch?v=DMm20Z7SF4M&feature=youtu.be
+http://www.steves-internet-guide.com/using-javascript-mqtt-client-websockets/
+
+
+https://www.wut.de/e-577ww-07-apus-000.php
+------------------------------------------------
+SSH
+
+https://www.raspberrypi.org/magpi/ssh-remote-control-raspberry-pi/
+
+-------------------------------------------------------------
+mongo
+$ sudo apt-get update
+$ sudo apt-get upgrade
+$ sudo apt-get install mongodb-server
+
+sudo service mongod start	start wtih pi
+m
+
+
+http://yannickloriot.com/2016/04/install-mongodb-and-node-js-on-a-raspberry-pi/
+-------------------------------------------------------------
+NGINX
+
+sudo apt-get install nginx
+sudo service nginx start
+http://[url of your Raspi]
+/usr/share/nginx/www/
+sudo chown pi /usr/share/nginx/www			www=html
+
+cd /usr/share/nginx/www
+sudo wget git.eclipse.org/c/paho/org.eclipse.paho.mqtt.javascript.git/plain/src/mqttws31.js
+
+
+-------------------------------------------------------------
+etho - Network
+sudo nano /etc/dhcpcd.conf
+interface eth0
+
+static ip_address=192.168.0.2/24
+static routers=192.168.0.1
+static domain_name_servers=192.168.0.1
+
+interface wlan0
+static ip_address=192.168.0.2/24
+https://www.raspberrypi.org/learning/networking-lessons/rpi-static-ip-address/
+
+-------------------------------------------------------------
+SSH
+2. Enable SSH
+
+As of the November 2016 release, Raspbian has the SSH server disabled by default. It can be enabled manually from the desktop:
+
+    Launch Raspberry Pi Configuration from the Preferences menu
+    Navigate to the Interfaces tab
+    Select Enabled next to SSH
+    Click OK
+
+Alternatively, raspi-config can be used in the terminal:
+
+    Enter sudo raspi-config in a terminal window
+    Select Interfacing Options
+    Navigate to and select SSH
+    Choose Yes
+    Select Ok
+    Choose Finish
+
+-------------------------------------------------------------
+VNC
+ 
+$ sudo apt-get update
+$ sudo apt-get install tightvncserver
+https://www.instructables.com/id/How-to-connect-raspberry-pi-to-laptop-display/
+$ vncpasswd
+
+vnc server password
+mnaait - laptop
+12345678 - pi
+$ vncserver
+Would you like to enter a view-only password (y/n)? n
+
+
+
+https://raspberrypi.stackexchange.com/questions/53577/tightvnc-server-remove-password
+Step 1 - (only if you do not have tightvncserver) - Install tightvncserver
+    sudo apt-get install tightvncserver
+Step 2 - Create a password file using vncpasswd command
+$ vncpasswd
+Using password file /home/user/.vnc/passwd
+VNC directory /home/user/.vnc does not exist, creating.
+Password: [TYPE YOUR VNC PASSWORD HERE]
+Verify: [TYPE YOUR VNC PASSWORD HERE]
+Would you like to enter a view-only password (y/n)? n
+
+Step 3 - Connect using vncviewer, this time using password file -
+
+
+
+Autostart with reboot:-----------------
+=======================================
+$ cd /home/pi
+$ cd .config
+$ mkdir autostart
+$ cd autostart
+$ nano tightvnc.desktop
+
+    [Desktop Entry]
+    Type=Application
+    Name=TightVNC
+    Exec=vncserver :1
+    StartupNotify=false
+
+https://learn.adafruit.com/adafruit-raspberry-pi-lesson-7-remote-control-with-vnc/running-vncserver-at-startup
+
+-------------------------------------------------------------
+Putty
+https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+
+
+2. Enable SSH
+
+As of the November 2016 release, Raspbian has the SSH server disabled by default. It can be enabled manually from the desktop:
+
+    Launch Raspberry Pi Configuration from the Preferences menu
+    Navigate to the Interfaces tab
+    Select Enabled next to SSH
+    Click OK
+
+Alternatively, raspi-config can be used in the terminal:
+
+    Enter sudo raspi-config in a terminal window
+    Select Interfacing Options
+    Navigate to and select SSH
+    Choose Yes
+    Select Ok
+    Choose Finish
+
+Alternatively, use systemctl to start the service
+
+sudo systemctl enable ssh
+sudo systemctl start ssh
+
+
+https://www.raspberrypi.org/documentation/remote-access/ssh/
+-------------------------------------------------------------
+add user
+sudo adduser malik
+
+pi raspberry
+malik malik123
+vnc viewer to login pi/raspberry
+putty any pi password
+
+
+-------------------------------------------------------------
+-------------------------------------------------------------
+
+-------------------------------------------------------------
+-------------------------------------------------------------
+-------------------------------------------------------------
+-------------------------------------------------------------
+
+
+
+Links:
+
+
+LAYOut:
+https://indibit.de/raspberry-pi-die-gpio-schnittstelle-grundlagenbelegung/
+
+
+---------------------
+boot trouble , does not boot second time, reboot works, shutdown does not.
+https://raspberrypi.stackexchange.com/questions/76257/raspberry-doesnt-boot-on-second-time
+https://www.raspberrypi.org/forums/viewtopic.php?t=160263
+https://retropie.org.uk/forum/topic/9553/solved-won-t-re-boot-after-first-boot
+https://www.raspberrypi.org/forums/viewtopic.php?t=58151
+
+
+
+
+----------------------------
+to do
+
+
+http://www.steves-internet-guide.com/into-mqtt-python-client/
+
+import paho.mqtt.client as mqtt #import the client1
+broker_address="192.168.1.184" 
+#broker_address="iot.eclipse.org"
+print("creating new instance")
+client = mqtt.Client("P1") #create new instance
+print("connecting to broker")
+client.connect(broker_address) #connect to broker
+print("Subscribing to topic","house/bulbs/bulb1")
+client.subscribe("house/bulbs/bulb1")
+print("Publishing message to topic","house/bulbs/bulb1")
+client.publish("house/bulbs/bulb1","OFF")
+
+
+
+
+https://github.com/mcollina/mosca/wiki/MQTT-over-Websockets
+https://www.youtube.com/watch?v=DMm20Z7SF4M
+ 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+
+https://www.eclipse.org/paho/clients/js/
+
+
+
+//=====================================
+java script tutorial
+https://www.digitalocean.com/community/tutorial_series/how-to-code-in-javascript
+
+------------------------------------------------
+Raspberry tutorial
+https://www.w3schools.com/nodejs/nodejs_raspberrypi_webserver_websocket.asp
+
+-----------------------------------------
+GPIO
+#GPIO Device Driver - a great tool to manipulate individual pins
+cd /sys/class/gpio
+cat /sys/class/gpio/gpio4/value
+/sys/class/gpio/export	#export pins for access and unexport pins to remove access	
+/sys/class/gpio/unexport
+echo 17 > /sys/class/gpio/export	export pin 17; look 3 files created
+echo in > /sys/class/gpio/gpio17/direction	#decide pin in or out using direction
+echo out > /sys/class/gpio/gpio17/direction
+
+cat /sys/class/gpio/gpio17/value	#read value of pin
+echo 1 > /sys/class/gpio/gpio17/value	#set value to 1 or 0
+echo 0 > /sys/class/gpio/gpio17/value
+
+echo high > /sys/class/gpio/gpio17/direction	... or in a single command ....
+echo low  > /sys/class/gpio/gpio17/direction
+
+http://codefoster.com/pi-basicgpio/
+http://raspberrypi.znix.com/hipidocs/topic_gpiodev.htm
+
+https://github.com/flyte/pi-mqtt-gpio
+
+--------------------------
+linux commands
+cd .	#current directory
+cd ..	#parent directory
+cd ~	#home directory
+cd ~/documents	go in home diretory sub folder
+cd ../computerhope	#traverse up one level to the parent directory and then down 
+cd ../../	#Traverse two directories up the directory tree
+
+
+----------------------------------------
+----------------------------------------
+----------------------------------------
+----------------------------------------
+----------------------------------------
+----------------------------------------
+code of three files
+----------------------------------------
+----------------------------------------
+----------------------------------------
+----------------------------------------
+----------------------------------------
+----------------------------------------
+
+
+
+----------------------------------------
+----------------------------------------
+----------------------------------------
+----------------------------------------
+----------------------------------------
+----------------------------------------
+
+
+----------------------------------------
+----------------------------------------
+----------------------------------------
+----------------------------------------
+----------------------------------------
+----------------------------------------
+
+
+----------------------------------------
+----------------------------------------
+----------------------------------------
+----------------------------------------
+----------------------------------------
+----------------------------------------
